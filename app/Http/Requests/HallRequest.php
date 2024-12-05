@@ -25,7 +25,7 @@ class HallRequest extends FormRequest
             'name' => ['required', 'string', 'min:1'],
             'ticket_price' => ['required', 'integer', 'min:1'],
             'vip_ticket_price' => ['required', 'integer', 'min:1'],
-            'sales' => ['reqired', 'boolean']
+            'sales' => ['required', 'boolean']
         ];
     }
 }

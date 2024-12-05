@@ -14,6 +14,7 @@ class HallController extends Controller
     public function index()
     {
         return Hall::all();
+        // return 'index';
     }
 
     /**
