@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChairController;
 use App\Http\Controllers\HallController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -9,3 +10,5 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::apiResource('/hall', HallController::class);
+
+Route::put('/chair', ChairController::class);
