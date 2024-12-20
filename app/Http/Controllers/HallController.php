@@ -49,7 +49,44 @@ class HallController extends Controller
     public function destroy(int $hallId)
     {
         $hall = Hall::query()->findOrFail($hallId);
-        $hall->delete();
-        return 'ok';
+        $seances = $hall->seances();
+        $seances->delete();
+        if ($hall->delete()) {
+            return response(null, 204);
+        }
+        return null;
     }
+
+    public function updatePrices(PricesHallRequest $request, int $hallId)
+    {
+        $hall = Hall::query()->findOrFail($hallId);
+        $hall->fill($request->validated());
+        return $hall->save();
+    }
+
+    public function getSeances(int $hallId, int|null $movieId = null)
+    {
+        if (!$movieId) {
+            return Hall::query()->findOrFail($hallId)->seances()->get();
+        }
+        return Hall::query()->findOrFail($hallId)->seances()->where('movie_id', $movieId)->get();
+    }
+
+    public function getChairs(int $hallId)
+    {
+        return Hall::query()->findOrFail($hallId)->chairs()->get();
+    }
+
+    public function setSales(SalesRequest $request, int $hallId)
+    {
+        $hall = Hall::query()->findOrFail($hallId);
+        $hall->fill($request->validated());
+        return $hall->save();
+    }
+
+    public function getSeancesAvailable() {
+        $halls = Hall::has('seances')->get();
+        return $halls;
+    }
+
 }

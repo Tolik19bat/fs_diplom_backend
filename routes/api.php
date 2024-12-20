@@ -11,4 +11,4 @@ Route::get('/user', function (Request $request) {
 
 Route::apiResource('/hall', HallController::class);
 
-Route::put('/chair', ChairController::class);
+Route::apiResource('/chair', ChairController::class);
