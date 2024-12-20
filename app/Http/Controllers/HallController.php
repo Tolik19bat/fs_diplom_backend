@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PricesHallRequest;
 use App\Models\Hall;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\HallRequest;
