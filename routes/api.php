@@ -12,3 +12,10 @@ Route::get('/user', function (Request $request) {
 Route::apiResource('/hall', HallController::class);
 
 Route::apiResource('/chair', ChairController::class);
+
+Route::put('/hall/prices/{id}', [App\Http\Controllers\HallController::class, 'updatePrices']);
+
+Route::get('/hall/{hallId}/seances', [App\Http\Controllers\HallController::class, 'getSeances']);
+
+Route::put('/hall/{hallId}/sales', [App\Http\Controllers\HallController::class, 'setSales']);
+
