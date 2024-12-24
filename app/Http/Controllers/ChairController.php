@@ -7,7 +7,8 @@ use App\Http\Requests\ChairRequest;
 use App\Http\Requests\UpdateChairsByHallRequest;
 use App\Http\Requests\UpdateChairsByIdRequest;
 use App\Models\Hall;
-use Illuminate\Http\Request;
+use App\Models\Seance;
+// use Illuminate\Http\Request;
 use App\Models\Chair;
 
 class ChairController extends Controller
@@ -15,10 +16,10 @@ class ChairController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        return 'index';
-    }
+    // public function index()
+    // {
+    //     return 'index';
+    // }
     /**
      * Store a newly created resource in storage.
      */
@@ -87,5 +88,15 @@ class ChairController extends Controller
             return abort(404);
         }
         Chair::query()->where('hall_id', $hall_id)->delete();
+    }
+
+    public function getBySeanceIdAndDate(int $SeanceId, string $Date)
+    {
+        return Seance::query()
+            ->findOrFail($SeanceId)
+            ->tickets()
+            ->where('date', $Date)
+            ->pluck('chair_id')
+            ->toArray();
     }
 }
