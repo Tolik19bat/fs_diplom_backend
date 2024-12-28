@@ -9,14 +9,11 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::apiResource('/hall', HallController::class);
-
-Route::put('/chair', ChairController::class);
-
-Route::put('/hall/prices/{id}', [App\Http\Controllers\HallController::class, 'updatePrices']);
-
-Route::get('/hall/{hallId}/seances', [App\Http\Controllers\HallController::class, 'getSeances']);
-
-Route::put('/hall/{hallId}/sales', [App\Http\Controllers\HallController::class, 'setSales']);
-
-Route::apiResource('/movie', App\Http\Controllers\MovieController::class);
+Route::middleware(['auth:sanctum', 'throttle:limitApi'])->group(function () {  
+    Route::apiResource('/hall', HallController::class);  
+    Route::put('/chair', [ChairController::class, 'updateChairs']);  
+    Route::put('/hall/prices/{id}', [App\Http\Controllers\HallController::class, 'updatePrices']);  
+    Route::get('/hall/{hallId}/seances', [App\Http\Controllers\HallController::class, 'getSeances']);  
+    Route::put('/hall/{hallId}/sales', [App\Http\Controllers\HallController::class, 'setSales']);  
+    Route::apiResource('/movie', App\Http\Controllers\MovieController::class);  
+});
