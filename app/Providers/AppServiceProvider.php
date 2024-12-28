@@ -20,10 +20,14 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
+    public function boot(Request $request): void
     {
         RateLimiter::for('limitApi', function (Request $request) {
-            return Limit::perMinute(3)->by($request->user()?->id ?: $request->ip());
+            return Limit::perMinute(3)->by($request->user()?->id ?: $request->ip())
+            ->response(function (Request $request, array $headers) {
+                return response('Ограничение скорости...', 429, $headers);
+            });
+            ;
         });
     }
 }
