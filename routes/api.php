@@ -21,7 +21,7 @@ Route::middleware('throttle:limitRequest')->group(function() {
     Route::post('login', [AuthController::class, 'login']);
 });
 
-Route::middleware(['auth:sanctum', 'throttle:limitRequest'])->group(function () {  
+Route::middleware([/*'auth:sanctum',*/ 'throttle:limitRequest'])->group(function () {  
     Route::apiResource('/hall', HallController::class);  
     Route::put('/chair', [ChairController::class, 'updateChairs']);  
     Route::put('/hall/prices/{id}', [App\Http\Controllers\HallController::class, 'updatePrices']);  
