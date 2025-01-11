@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Seance extends Model
 {
@@ -17,12 +19,12 @@ class Seance extends Model
 
 //    protected $table = 'seances';
 
-    public function hall(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function hall(): BelongsTo
     {
         return $this->belongsTo(Hall::class);
     }
 
-    public function movie(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function movie(): BelongsTo
     {
         return $this->belongsTo(Movie::class);
     }
@@ -30,8 +32,8 @@ class Seance extends Model
     /**
      * Получить билеты, проданные на этот сеанс.
      */
-    // public function tickets(): HasMany
-    // {
-    //     return $this->hasMany(Ticket::class);
-    // }
+    public function tickets(): HasMany
+    {
+        return $this->hasMany(Ticket::class);
+    }
 }
