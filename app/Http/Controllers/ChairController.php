@@ -91,8 +91,8 @@ class ChairController extends Controller
     }
 
     public function getBySeanceIdAndDate(int $SeanceId, string $Date)
-    {
-        return Seance::query()
+    {        
+return Seance::query()
             ->findOrFail($SeanceId)
             ->tickets()
             ->where('date', $Date)
