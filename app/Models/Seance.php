@@ -11,7 +11,7 @@ class Seance extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
+    protected $fillable = [ // сеанс
         'movie_id',
         'hall_id',
         'start',
@@ -19,12 +19,12 @@ class Seance extends Model
 
 //    protected $table = 'seances';
 
-    public function hall(): BelongsTo
+    public function hall(): BelongsTo //принадлежит залу
     {
         return $this->belongsTo(Hall::class);
     }
 
-    public function movie(): BelongsTo
+    public function movie(): BelongsTo //принадлежит фильму
     {
         return $this->belongsTo(Movie::class);
     }
@@ -32,7 +32,7 @@ class Seance extends Model
     /**
      * Получить билеты, проданные на этот сеанс.
      */
-    public function tickets(): HasMany
+    public function tickets(): HasMany //имеет много билетов
     {
         return $this->hasMany(Ticket::class);
     }

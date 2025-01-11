@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Movie extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
+    protected $fillable = [ //фильм
         'title',
         'duration',
         'poster_url',
@@ -18,4 +19,9 @@ class Movie extends Model
         'start_date',
         'end_date',
     ];
+    
+    public function seances(): HasMany //имеет много сеансов
+    {
+        return $this->hasMany(Seance::class);
+    }
 }

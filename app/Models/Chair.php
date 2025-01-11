@@ -11,22 +11,22 @@ class Chair extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
+    protected $fillable = [ //место
         'hall_id',
         'row',
         'place',
         'type'
     ];
 
-    public function hall(): BelongsTo
+    public function hall(): BelongsTo //принадлежит залу
     {
-        return $this->belongsTo(Hall::class);  //Определяет метод hall, который возвращает отношение BelongsTo к модели Hall.
+        return $this->belongsTo(Hall::class);
     }
 
     /**
      * Получить билеты на это кресло.
      */
-    public function tickets(): HasMany
+    public function tickets(): HasMany //имеет много билетов
     {
         return $this->hasMany(Ticket::class);
     }

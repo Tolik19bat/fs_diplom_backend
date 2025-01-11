@@ -11,7 +11,7 @@ class Ticket extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
+    protected $fillable = [ //билет
         'date',
         'seance_id',
         'chair_id',
@@ -20,7 +20,7 @@ class Ticket extends Model
     /**
      * Получить сеанс, связанный с билетом.
      */
-    public function seance(): HasOne
+    public function seance(): HasOne //имеет один сеанс
     {
         return $this->hasOne(Seance::class);
     }
@@ -28,7 +28,7 @@ class Ticket extends Model
     /**
      * Получить кресло, указанное в билете.
      */
-    public function chair(): BelongsTo
+    public function chair(): BelongsTo //принадлежит месту
     {
         return $this->belongsTo(Chair::class);
     }
