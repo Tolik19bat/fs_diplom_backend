@@ -16,13 +16,13 @@ class Hall extends Model
         'sales'
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        "created_at",
-        "updated_at",
-    ];
+    public function chairs(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Chair::class);
+    }
+
+    public function seances(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Seance::class);
+    }
 }
