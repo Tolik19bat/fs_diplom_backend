@@ -15,8 +15,7 @@ class HallController extends Controller
      */
     public function index()
     {
-        return Hall::all();
-        // return 'index';
+        return Hall::all(); //коллекция залов
     }
 
     /**
@@ -24,7 +23,7 @@ class HallController extends Controller
      */
     public function store(HallRequest $request)
     {
-        return Hall::query()->create($request->validated());
+        return Hall::query()->create($request->validated()); //создать зал
     }
 
     /**
@@ -32,63 +31,78 @@ class HallController extends Controller
      */
     public function show(int $hallId)
     {
-        return Hall::query()->findOrFail($hallId);
+        return Hall::query()->findOrFail($hallId); //показать зал
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(HallRequest $request, int $hallId)
+    public function update(HallRequest $request, int $hallId) //обновить зал
     {
-        $hall = Hall::query()->findOrFail($hallId);
-        $hall->fill($request->validated);
-        return $hall->save();
+        $hall = Hall::query()->findOrFail($hallId); //Находим зал по ID  
+        $hall->fill($request->validated); //Заполняем поля зала данными из запроса  
+        return $hall->save(); //Сохраняем изменения в базе данных
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(int $hallId)
+    public function destroy(int $hallId) // Удалить зал и сеансы по id  
     {
+        // Ищем зал по идентификатору $hallId. Если зал не найден, будет выброшено исключение.  
         $hall = Hall::query()->findOrFail($hallId);
+
+        // Получаем все сеансы, связанные с найденным залом.  
         $seances = $hall->seances();
+
+        // Удаляем все сеансы из базы данных.  
         $seances->delete();
+
+        // Удаляем сам зал из базы данных. Если удаление успешно, возвращаем код состояния 204 (No Content).  
         if ($hall->delete()) {
             return response(null, 204);
         }
+
+        // Если по какой-то причине зал не удалось удалить, возвращаем null.  
         return null;
     }
 
     public function updatePrices(PricesHallRequest $request, int $hallId)
     {
+        // Ищем зал по идентификатору $hallId. Если зал не найден, будет выброшено исключение.  
         $hall = Hall::query()->findOrFail($hallId);
+
+        // Заполняем модель залa данными из обрабатываемого запроса, которые были предварительно валидированы.  
         $hall->fill($request->validated());
+
+        // Сохраняем изменения в базе данных и возвращаем результат сохранения (успешно или нет).  
         return $hall->save();
     }
 
-    public function getSeances(int $hallId, int|null $movieId = null)
+    public function getSeances(int $hallId, int|null $movieId = null) //получить фильм в сеансе
     {
-        if (!$movieId) {
-            return Hall::query()->findOrFail($hallId)->seances()->get();
+        if (!$movieId) { //если id фильма нет 
+            return Hall::query()->findOrFail($hallId)->seances()->get(); //показать все сеансы
         }
-        return Hall::query()->findOrFail($hallId)->seances()->where('movie_id', $movieId)->get();
+        return Hall::query()->findOrFail($hallId)->seances()->where('movie_id', $movieId)->get(); //показать выбранный фильм в текущем сеансе
     }
 
-    public function getChairs(int $hallId)
+    public function getChairs(int $hallId) //получаем места в зале
     {
-        return Hall::query()->findOrFail($hallId)->chairs()->get();
+        return Hall::query()->findOrFail($hallId)->chairs()->get(); //коллекция стульев в зале
     }
 
-    public function setSales(SalesRequest $request, int $hallId)
+    public function setSales(SalesRequest $request, int $hallId) // 
     {
-        $hall = Hall::query()->findOrFail($hallId);
-        $hall->fill($request->validated());
-        return $hall->save();
+        $hall = Hall::query()->findOrFail($hallId); // Ищем зал по ID  
+        $hall->fill($request->validated()); // Заполняем свойства зала данными из запроса  
+        return $hall->save(); // Сохраняем изменения в базе данных  
     }
 
-    public function getSeancesAvailable() {
-        $halls = Hall::has('seances')->get();
-        return $halls;
+    public function getSeancesAvailable()
+    { //получаем доступные сеансы
+        $halls = Hall::has('seances')->get(); // Получаем залы, у которых есть сеансы 
+        return $halls; // Возвращаем список залов
     }
 
 }
