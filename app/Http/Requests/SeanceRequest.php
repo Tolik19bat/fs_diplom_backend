@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateChairsByIdRequest extends FormRequest
+class SeanceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +22,9 @@ class UpdateChairsByIdRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'chairs' => ['required', 'array'],
-            'chairs.*.id' => ['required', 'integer'],
-            'chairs.*.type' => ['required', 'string'],
+            'movie_id' => ['required', 'integer', 'exists:movies,id'],
+            'hall_id' => ['required', 'integer', 'exists:halls,id'],
+            'start' => ['required', 'string'],
         ];
     }
 }

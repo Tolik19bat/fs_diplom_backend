@@ -22,12 +22,12 @@ class ChairRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'chairs' => 'array|required',
-            'chairs.*.id' => 'integer|required',
-            'chairs.*.hall_id' => 'integer|required',
-            'chairs.*.row' => 'integer|required',
-            'chairs.*.place' =>'integer|required',
-            'chairs.*.type' => 'string|required',
+            'chairs' => ['required', 'array'],
+            'chairs.*.id' => ['required', 'integer'],
+            'chairs.*.hall_id' => ['required', 'integer'],
+            'chairs.*.row' => ['required', 'integer'],
+            'chairs.*.place' =>['required', 'integer'],
+            'chairs.*.type' => ['required', 'string'],
         ];
     }
 }

@@ -6,42 +6,63 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginUserRequest;
 use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    /**
+     * Регистрация нового пользователя.
+     * @param StoreUserRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function register(StoreUserRequest $request)
     {
+        // Создаём нового пользователя с данными из запроса
         return User::create($request->all());
     }
 
+    /**
+     * Вход пользователя в систему.
+     * @param LoginUserRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function login(LoginUserRequest $request)
     {
+        // Проверяем, соответствует ли пара email и password
         if (!Auth::attempt($request->only(['email', 'password']))) {
+            // Если нет, возвращаем сообщение об ошибке с кодом 401
             return response()->json([
                 'message' => 'не правильный email или password ',
             ], 401);
         }
 
-        // $user = Auth::user();
+        // Получаем пользователя по email из запроса
         $user = User::query()->where('email', $request->email)->first();
+        // Удаляем старые токены пользователя
         $user->tokens()->delete();
-        return response()->json([  
-            'user' => $user,                                                   
-            'token' => $user->createToken(  
-                name: "Token of user: {$user->name}",   
-                abilities: ['array']  // Замените 'array' на ваши фактические возможности  
-            )->plainTextToken,  
-        ]); 
+        // Возвращаем ответ с пользователем и новым токеном
+        return response()->json([
+            'user' => $user, // Информация о пользователе
+            'token' => $user->createToken(
+                name: "Token of user: {$user->name}", // Имя токена
+                abilities: ['array'] // Замените на фактические возможности
+            )->plainTextToken,
+        ]);
     }
 
+    /**
+     * Выход пользователя из системы.
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function logout()
     {
+        // Получаем первого пользователя
         $user = User::query()->first();
+        // Удаляем все токены пользователя
         $user->tokens()->delete();
+        // Возвращаем сообщение об успешном выходе
         return response()->json([
-            'message' => 'Токен удалён'
+            'message' => 'Токен удалён',
         ]);
     }
 }

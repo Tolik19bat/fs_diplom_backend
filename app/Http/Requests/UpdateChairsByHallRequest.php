@@ -22,10 +22,10 @@ class UpdateChairsByHallRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'chairs' => 'array|required',
-            'chairs.*.row' => 'integer|required',
-            'chairs.*.place' => 'integer|required',
-            'chairs.*.type' => 'string|required',
+            'chairs' => ['required', 'array'],
+            'chairs.*.row' => ['required', 'integer'],
+            'chairs.*.place' => ['required', 'integer'],
+            'chairs.*.type' => ['required', 'string'],
         ];
     }
 }
