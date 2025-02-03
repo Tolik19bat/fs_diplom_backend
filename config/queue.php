@@ -4,12 +4,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Queue Connection Name
+    | Имя соединения очереди по умолчанию
     |--------------------------------------------------------------------------
     |
-    | Laravel's queue supports a variety of backends via a single, unified
-    | API, giving you convenient access to each backend using identical
-    | syntax for each. The default queue connection is defined below.
+    | Очередь Laravel поддерживает множество бэкендов через единый, унифицированный
+    | API, предоставляя вам удобный доступ к каждому бэкенду с использованием
+    | одинакового синтаксиса для каждого. Соединение очереди по умолчанию определено ниже.
     |
     */
 
@@ -17,14 +17,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Queue Connections
+    | Подключения к очередям
     |--------------------------------------------------------------------------
     |
-    | Here you may configure the connection options for every queue backend
-    | used by your application. An example configuration is provided for
-    | each backend supported by Laravel. You're also free to add more.
+    | Здесь вы можете настроить параметры подключения для каждого бэкенда очереди
+    | используемого вашим приложением. Пример конфигурации предоставляется для
+    | каждого бэкенда, поддерживаемого Laravel. Вы также можете добавить больше.
     |
-    | Drivers: "sync", "database", "beanstalkd", "sqs", "redis", "null"
+    | Драйверы: "sync", "database", "beanstalkd", "sqs", "redis", "null"
     |
     */
 
@@ -76,12 +76,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Job Batching
+    | Пакетирование заданий
     |--------------------------------------------------------------------------
     |
-    | The following options configure the database and table that store job
-    | batching information. These options can be updated to any database
-    | connection and table which has been defined by your application.
+    | Следующие параметры настраивают базу данных и таблицу, в которых хранится информация о пакетировании заданий. Эти параметры можно обновить для любого подключения к базе данных
+    | и таблицы, которые определены вашим приложением.
     |
     */
 
@@ -92,14 +91,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Failed Queue Jobs
+    | Невыполненные задания очереди
     |--------------------------------------------------------------------------
     |
-    | These options configure the behavior of failed queue job logging so you
-    | can control how and where failed jobs are stored. Laravel ships with
-    | support for storing failed jobs in a simple file or in a database.
+    | Эти параметры настраивают поведение журнала невыполненных заданий очереди, чтобы вы
+    | могли контролировать, как и где хранятся невыполненные задания. Laravel поставляется с
+    | поддержкой хранения невыполненных заданий в простом файле или в базе данных.
     |
-    | Supported drivers: "database-uuids", "dynamodb", "file", "null"
+    | Поддерживаемые драйверы: "database-uuids", "dynamodb", "file", "null"
     |
     */
 

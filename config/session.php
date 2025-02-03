@@ -6,15 +6,15 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Session Driver
+    | Драйвер сеанса по умолчанию
     |--------------------------------------------------------------------------
     |
-    | This option determines the default session driver that is utilized for
-    | incoming requests. Laravel supports a variety of storage options to
-    | persist session data. Database storage is a great default choice.
+    | Этот параметр определяет драйвер сеанса по умолчанию, который используется для
+    | входящих запросов. Laravel поддерживает различные варианты хранения для
+    | сохранения данных сеанса. Хранилище базы данных — отличный выбор по умолчанию.
     |
-    | Supported: "file", "cookie", "database", "apc",
-    |            "memcached", "redis", "dynamodb", "array"
+    | Поддерживается: "file", "cookie", "database", "apc",
+    | "memcached", "redis", "dynamodb", "array"
     |
     */
 
@@ -22,13 +22,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Lifetime
+    | Время жизни сеанса
     |--------------------------------------------------------------------------
     |
-    | Here you may specify the number of minutes that you wish the session
-    | to be allowed to remain idle before it expires. If you want them
-    | to expire immediately when the browser is closed then you may
-    | indicate that via the expire_on_close configuration option.
+    | Здесь вы можете указать количество минут, в течение которых сеанс
+    | может оставаться бездействующим до истечения срока действия. Если вы хотите, чтобы они
+    | истекали немедленно при закрытии браузера, вы можете
+    | указать это с помощью параметра конфигурации expire_on_close.
     |
     */
 
@@ -38,12 +38,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Encryption
+    | Шифрование сеанса
     |--------------------------------------------------------------------------
     |
-    | This option allows you to easily specify that all of your session data
-    | should be encrypted before it's stored. All encryption is performed
-    | automatically by Laravel and you may use the session like normal.
+    | Эта опция позволяет вам легко указать, что все ваши данные сеанса
+    | должны быть зашифрованы перед сохранением. Все шифрование выполняется Laravel
+    | автоматически, и вы можете использовать сеанс как обычно.
     |
     */
 
@@ -51,25 +51,25 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session File Location
+    | Расположение файла сеанса
     |--------------------------------------------------------------------------
     |
-    | When utilizing the "file" session driver, the session files are placed
-    | on disk. The default storage location is defined here; however, you
-    | are free to provide another location where they should be stored.
+    | При использовании драйвера сеанса «файл» файлы сеанса размещаются
+    | на диске. Место хранения по умолчанию определено здесь; однако вы
+    | можете указать другое место, где они должны храниться.
     |
     */
 
     'files' => storage_path('framework/sessions'),
 
     /*
-    |--------------------------------------------------------------------------
-    | Session Database Connection
-    |--------------------------------------------------------------------------
+    |-------------------------------------------------------------------------
+    | Сеансовое подключение к базе данных
+    |-------------------------------------------------------------------------
     |
-    | When using the "database" or "redis" session drivers, you may specify a
-    | connection that should be used to manage these sessions. This should
-    | correspond to a connection in your database configuration options.
+    | При использовании драйверов сеанса «database» или «redis» вы можете указать
+    | подключение, которое должно использоваться для управления этими сеансами. Это должно
+    | соответствовать подключению в параметрах конфигурации вашей базы данных.
     |
     */
 
@@ -77,12 +77,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Database Table
+    | Таблица базы данных сеансов
     |--------------------------------------------------------------------------
     |
-    | When using the "database" session driver, you may specify the table to
-    | be used to store sessions. Of course, a sensible default is defined
-    | for you; however, you're welcome to change this to another table.
+    | При использовании драйвера сеанса «база данных» вы можете указать таблицу, которая
+    | будет использоваться для хранения сеансов. Конечно, для вас определено разумное значение по умолчанию; однако вы можете изменить его на другую таблицу.
     |
     */
 
@@ -90,14 +89,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Cache Store
+    | Кэш-хранилище сеанса
     |--------------------------------------------------------------------------
     |
-    | When using one of the framework's cache driven session backends, you may
-    | define the cache store which should be used to store the session data
-    | between requests. This must match one of your defined cache stores.
+    | При использовании одного из кэш-серверов сеанса фреймворка, управляемого кэшем, вы можете
+    | определить кэш-хранилище, которое должно использоваться для хранения данных сеанса
+    | между запросами. Оно должно соответствовать одному из определенных вами кэш-хранилищ.
     |
-    | Affects: "apc", "dynamodb", "memcached", "redis"
+    | Влияет на: "apc", "dynamodb", "memcached", "redis"
     |
     */
 
@@ -105,12 +104,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Sweeping Lottery
+    | Лотерея очистки сеанса
     |--------------------------------------------------------------------------
     |
-    | Some session drivers must manually sweep their storage location to get
-    | rid of old sessions from storage. Here are the chances that it will
-    | happen on a given request. By default, the odds are 2 out of 100.
+    | Некоторые драйверы сеансов должны вручную очищать свое хранилище, чтобы
+    | избавиться от старых сеансов из хранилища. Вот вероятность того, что это
+    | произойдет при заданном запросе. По умолчанию вероятность составляет 2 из 100.
     |
     */
 
@@ -118,12 +117,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Cookie Name
+    | Имя сеансового cookie-файла
     |--------------------------------------------------------------------------
     |
-    | Here you may change the name of the session cookie that is created by
-    | the framework. Typically, you should not need to change this value
-    | since doing so does not grant a meaningful security improvement.
+    | Здесь вы можете изменить имя сеансового cookie-файла, созданного
+    | фреймворком. Обычно вам не нужно менять это значение,
+    | поскольку это не обеспечивает существенного улучшения безопасности.
     |
     */
 
@@ -134,25 +133,25 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Cookie Path
+    | Путь к файлу cookie сеанса
     |--------------------------------------------------------------------------
     |
-    | The session cookie path determines the path for which the cookie will
-    | be regarded as available. Typically, this will be the root path of
-    | your application, but you're free to change this when necessary.
+    | Путь к файлу cookie сеанса определяет путь, для которого файл cookie будет
+    | считаться доступным. Обычно это будет корневой путь
+    | вашего приложения, но вы можете изменить его при необходимости.
     |
     */
 
     'path' => env('SESSION_PATH', '/'),
 
     /*
-    |--------------------------------------------------------------------------
-    | Session Cookie Domain
+    |-------------------------------------------------------------------------
+    | Домен сеансового cookie-файла
     |--------------------------------------------------------------------------
     |
-    | This value determines the domain and subdomains the session cookie is
-    | available to. By default, the cookie will be available to the root
-    | domain and all subdomains. Typically, this shouldn't be changed.
+    | Это значение определяет домен и поддомены, для которых доступен сеансовый cookie-файл
+    |. По умолчанию cookie-файл будет доступен корневому
+    | домену и всем поддоменам. Обычно это не следует менять.
     |
     */
 
@@ -173,12 +172,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | HTTP Access Only
+    | Файлы cookie только HTTPS
     |--------------------------------------------------------------------------
     |
-    | Setting this value to true will prevent JavaScript from accessing the
-    | value of the cookie and the cookie will only be accessible through
-    | the HTTP protocol. It's unlikely you should disable this option.
+    | Если установить этот параметр в значение true, файлы cookie сеанса будут отправляться обратно
+    | на сервер, только если браузер имеет соединение HTTPS. Это предотвратит отправку
+    | файлов cookie вам, когда это невозможно сделать безопасно.
     |
     */
 
@@ -186,16 +185,16 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Same-Site Cookies
+    | Файлы cookie одного сайта
     |--------------------------------------------------------------------------
     |
-    | This option determines how your cookies behave when cross-site requests
-    | take place, and can be used to mitigate CSRF attacks. By default, we
-    | will set this value to "lax" to permit secure cross-site requests.
+    | Этот параметр определяет, как ведут себя ваши файлы cookie при выполнении межсайтовых запросов
+    | и может использоваться для смягчения атак CSRF. По умолчанию мы
+    | установим это значение на «lax», чтобы разрешить безопасные межсайтовые запросы.
     |
-    | See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value
+    | См.: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value
     |
-    | Supported: "lax", "strict", "none", null
+    | Поддерживается: «lax», «strict», «none», null
     |
     */
 
@@ -203,12 +202,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Partitioned Cookies
+    | Разделенные файлы cookie
     |--------------------------------------------------------------------------
     |
-    | Setting this value to true will tie the cookie to the top-level site for
-    | a cross-site context. Partitioned cookies are accepted by the browser
-    | when flagged "secure" and the Same-Site attribute is set to "none".
+    | Установка этого значения в true привяжет файл cookie к сайту верхнего уровня для
+    | межсайтового контекста. Разделенные файлы cookie принимаются браузером,
+    | когда помечены как «безопасные-secure», а атрибут Same-Site установлен в значение «нет-none».
     |
     */
 

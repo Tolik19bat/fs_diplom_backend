@@ -4,12 +4,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Authentication Defaults
+    | Параметры аутентификации по умолчанию
     |--------------------------------------------------------------------------
     |
-    | This option defines the default authentication "guard" and password
-    | reset "broker" for your application. You may change these values
-    | as required, but they're a perfect start for most applications.
+    | Этот параметр определяет «охрану» аутентификации по умолчанию и пароль
+    | сброс «брокера» для вашего приложения. Вы можете изменить эти значения
+    | по мере необходимости, но они идеально подходят для начала большинства приложений.
     |
     */
 
@@ -20,18 +20,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Authentication Guards
+    | Защитники аутентификации
     |--------------------------------------------------------------------------
     |
-    | Next, you may define every authentication guard for your application.
-    | Of course, a great default configuration has been defined for you
-    | which utilizes session storage plus the Eloquent user provider.
+    | Далее вы можете определить каждый защитник аутентификации для своего приложения.
+    | Конечно, для вас была определена отличная конфигурация по умолчанию,
+    | которая использует хранилище сеансов плюс поставщик пользователей Eloquent.
     |
-    | All authentication guards have a user provider, which defines how the
-    | users are actually retrieved out of your database or other storage
-    | system used by the application. Typically, Eloquent is utilized.
+    | Все защитные защитные устройства аутентификации имеют поставщика пользователей, который определяет, как
+    | пользователи фактически извлекаются из вашей базы данных или другой системы хранения,
+    | используемой приложением. Обычно используется Eloquent.
     |
-    | Supported: "session"
+    | Поддерживается: "session"
     |
     */
 
@@ -44,18 +44,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | User Providers
+    | Поставщики пользователей
     |--------------------------------------------------------------------------
     |
-    | All authentication guards have a user provider, which defines how the
-    | users are actually retrieved out of your database or other storage
-    | system used by the application. Typically, Eloquent is utilized.
+    | Все аутентификационные сторожа имеют провайдера пользователя, который определяет, как
+    | пользователи фактически извлекаются из вашей базы данных или другой системы хранения,
+    | используемой приложением. Обычно используется Eloquent.
     |
-    | If you have multiple user tables or models you may configure multiple
-    | providers to represent the model / table. These providers may then
-    | be assigned to any extra authentication guards you have defined.
+    | Если у вас есть несколько пользовательских таблиц или моделей, вы можете настроить несколько
+    | поставщиков для представления модели / таблицы. Затем эти поставщики могут быть назначены любым дополнительным аутентификационным сторожам, которые вы определили.
     |
-    | Supported: "database", "eloquent"
+    | Поддерживается: "database", "eloquent"
     |
     */
 
@@ -73,20 +72,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Resetting Passwords
+    | Сброс паролей
     |--------------------------------------------------------------------------
     |
-    | These configuration options specify the behavior of Laravel's password
-    | reset functionality, including the table utilized for token storage
-    | and the user provider that is invoked to actually retrieve users.
+    | Эти параметры конфигурации определяют поведение функции сброса паролей Laravel, включая таблицу, используемую для хранения токенов,
+    | и поставщика пользователей, который вызывается для фактического извлечения пользователей.
     |
-    | The expiry time is the number of minutes that each reset token will be
-    | considered valid. This security feature keeps tokens short-lived so
-    | they have less time to be guessed. You may change this as needed.
+    | Срок действия — это количество минут, в течение которых каждый токен сброса будет
+    | считаться действительным. Эта функция безопасности делает токены недолговечными, поэтому
+    | у них меньше времени на угадывание. Вы можете изменить это по мере необходимости.
     |
-    | The throttle setting is the number of seconds a user must wait before
-    | generating more password reset tokens. This prevents the user from
-    | quickly generating a very large amount of password reset tokens.
+    | Параметр ограничения — это количество секунд, которое пользователь должен ждать, прежде чем
+    | сгенерировать больше токенов сброса пароля. Это не позволяет пользователю
+    | быстро генерировать очень большое количество токенов сброса пароля.
     |
     */
 
@@ -101,12 +99,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Password Confirmation Timeout
+    | Тайм-аут подтверждения пароля
     |--------------------------------------------------------------------------
     |
-    | Here you may define the amount of seconds before a password confirmation
-    | window expires and users are asked to re-enter their password via the
-    | confirmation screen. By default, the timeout lasts for three hours.
+    | Здесь вы можете определить количество секунд до истечения срока действия окна подтверждения пароля
+    | и пользователю будет предложено повторно ввести свой пароль через экран подтверждения. По умолчанию тайм-аут длится три часа.
     |
     */
 

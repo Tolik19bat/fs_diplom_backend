@@ -4,13 +4,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Mailer
-    |--------------------------------------------------------------------------
+    | Почтовая программа по умолчанию
+    |-------------------------------------------------------------------------
     |
-    | This option controls the default mailer that is used to send all email
-    | messages unless another mailer is explicitly specified when sending
-    | the message. All additional mailers can be configured within the
-    | "mailers" array. Examples of each type of mailer are provided.
+    | Эта опция управляет почтовой программой по умолчанию, которая используется для отправки всех сообщений электронной почты,
+    | если при отправке сообщения явно не указана другая почтовая программа. Все дополнительные почтовые программы можно настроить в массиве
+    | "mailers". Приведены примеры каждого типа почтовой программы.
     |
     */
 
@@ -18,20 +17,20 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Mailer Configurations
+    | Конфигурации почтовых программ
     |--------------------------------------------------------------------------
     |
-    | Here you may configure all of the mailers used by your application plus
-    | their respective settings. Several examples have been configured for
-    | you and you are free to add your own as your application requires.
+    | Здесь вы можете настроить все почтовые программы, используемые вашим приложением, а также
+    | их соответствующие настройки. Несколько примеров были настроены для
+    | вас, и вы можете добавлять свои собственные, как того требует ваше приложение.
     |
-    | Laravel supports a variety of mail "transport" drivers that can be used
-    | when delivering an email. You may specify which one you're using for
-    | your mailers below. You may also add additional mailers if needed.
+    | Laravel поддерживает множество почтовых «транспортных» драйверов, которые можно использовать
+    | при доставке электронной почты. Ниже вы можете указать, какой из них вы используете для
+    | ваших почтовых программ. При необходимости вы также можете добавить дополнительные почтовые программы.
     |
-    | Supported: "smtp", "sendmail", "mailgun", "ses", "ses-v2",
-    |            "postmark", "resend", "log", "array",
-    |            "failover", "roundrobin"
+    | Поддерживаются: «smtp», «sendmail», «mailgun», «ses», «ses-v2»,
+    | «postmark», «resend», «log», «array»,
+    | «failover», «roundrobin»
     |
     */
 
@@ -99,12 +98,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Global "From" Address
+    | Глобальный адрес «От»
     |--------------------------------------------------------------------------
     |
-    | You may wish for all emails sent by your application to be sent from
-    | the same address. Here you may specify a name and address that is
-    | used globally for all emails that are sent by your application.
+    | Вы можете захотеть, чтобы все письма, отправленные вашим приложением, были отправлены с
+    | одного и того же адреса. Здесь вы можете указать имя и адрес, которые
+    | используются глобально для всех писем, отправленных вашим приложением.
     |
     */
 

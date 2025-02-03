@@ -6,12 +6,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Cache Store
+    | Хранилище кэша по умолчанию
     |--------------------------------------------------------------------------
     |
-    | This option controls the default cache store that will be used by the
-    | framework. This connection is utilized if another isn't explicitly
-    | specified when running a cache operation inside the application.
+    | Этот параметр управляет хранилищем кэша по умолчанию, которое будет использоваться
+    | фреймворком. Это соединение используется, если другое явно не
+    | указано при запуске операции кэширования внутри приложения.
     |
     */
 
@@ -19,15 +19,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Cache Stores
+    | Кэш-хранилища
     |--------------------------------------------------------------------------
     |
-    | Here you may define all of the cache "stores" for your application as
-    | well as their drivers. You may even define multiple stores for the
-    | same cache driver to group types of items stored in your caches.
+    | Здесь вы можете определить все кэш-"хранилища" для вашего приложения, а также их драйверы. Вы можете даже определить несколько хранилищ для
+    | одного и того же кэш-драйвера, чтобы сгруппировать типы элементов, хранящихся в ваших кэшах.
     |
-    | Supported drivers: "array", "database", "file", "memcached",
-    |                    "redis", "dynamodb", "octane", "null"
+    | Поддерживаемые драйверы: "array", "database", "file", "memcached",
+    | "redis", "dynamodb", "octane", "null"
     |
     */
 
@@ -94,12 +93,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Cache Key Prefix
+    | Префикс ключа кэша
     |--------------------------------------------------------------------------
     |
-    | When utilizing the APC, database, memcached, Redis, and DynamoDB cache
-    | stores, there might be other applications using the same cache. For
-    | that reason, you may prefix every cache key to avoid collisions.
+    | При использовании хранилищ кэша APC, базы данных, memcached, Redis и DynamoDB могут быть другие приложения, использующие тот же кэш. По этой причине вы можете использовать префикс для каждого ключа кэша, чтобы избежать коллизий.
     |
     */
 

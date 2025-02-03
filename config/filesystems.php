@@ -4,12 +4,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Filesystem Disk
+    | Файловая система по умолчанию
     |--------------------------------------------------------------------------
     |
-    | Here you may specify the default filesystem disk that should be used
-    | by the framework. The "local" disk, as well as a variety of cloud
-    | based disks are available to your application for file storage.
+    | Здесь вы можете указать диск файловой системы по умолчанию, который должен использоваться
+    | фреймворком. «Локальный» диск, а также различные облачные
+    | диски доступны вашему приложению для хранения файлов.
     |
     */
 
@@ -17,14 +17,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Filesystem Disks
+    | Диски файловой системы
     |--------------------------------------------------------------------------
     |
-    | Below you may configure as many filesystem disks as necessary, and you
-    | may even configure multiple disks for the same driver. Examples for
-    | most supported storage drivers are configured here for reference.
+    | Ниже вы можете настроить столько дисков файловой системы, сколько необходимо, и вы
+    | можете даже настроить несколько дисков для одного и того же драйвера. Примеры для
+    | большинства поддерживаемых драйверов хранения настроены здесь для справки.
     |
-    | Supported drivers: "local", "ftp", "sftp", "s3"
+    | Поддерживаемые драйверы: "local", "ftp", "sftp", "s3"
     |
     */
 
@@ -61,12 +61,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Symbolic Links
-    |--------------------------------------------------------------------------
+    | Символические ссылки
+    |-------------------------------------------------------------------------
     |
-    | Here you may configure the symbolic links that will be created when the
-    | `storage:link` Artisan command is executed. The array keys should be
-    | the locations of the links and the values should be their targets.
+    | Здесь вы можете настроить символические ссылки, которые будут созданы при выполнении команды Artisan
+    | `storage:link`. Ключи массива должны быть
+    | местоположениями ссылок, а значения должны быть их целями.
     |
     */
 

@@ -9,12 +9,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Log Channel
+    | Канал журнала по умолчанию
     |--------------------------------------------------------------------------
     |
-    | This option defines the default log channel that is utilized to write
-    | messages to your logs. The value provided here should match one of
-    | the channels present in the list of "channels" configured below.
+    | Этот параметр определяет канал журнала по умолчанию, который используется для записи
+    | сообщений в ваши журналы. Указанное здесь значение должно соответствовать одному из
+    | каналов, представленных в списке «каналов», настроенных ниже.
     |
     */
 
@@ -22,12 +22,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Deprecations Log Channel
+    | Канал журнала устаревших функций
     |--------------------------------------------------------------------------
     |
-    | This option controls the log channel that should be used to log warnings
-    | regarding deprecated PHP and library features. This allows you to get
-    | your application ready for upcoming major versions of dependencies.
+    | Этот параметр управляет каналом журнала, который следует использовать для регистрации предупреждений
+    | относительно устаревших функций PHP и библиотек. Это позволяет вам подготовить
+    | ваше приложение к будущим основным версиям зависимостей.
     |
     */
 
@@ -38,15 +38,15 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Log Channels
+    | Каналы журналов
     |--------------------------------------------------------------------------
     |
-    | Here you may configure the log channels for your application. Laravel
-    | utilizes the Monolog PHP logging library, which includes a variety
-    | of powerful log handlers and formatters that you're free to use.
+    | Здесь вы можете настроить каналы журналов для своего приложения. Laravel
+    | использует библиотеку журналов Monolog PHP, которая включает в себя множество
+    | мощных обработчиков и форматировщиков журналов, которые вы можете использовать бесплатно.
     |
-    | Available drivers: "single", "daily", "slack", "syslog",
-    |                    "errorlog", "monolog", "custom", "stack"
+    | Доступные драйверы: "single", "daily", "slack", "syslog",
+    | "errorlog", "monolog", "custom", "stack"
     |
     */
 

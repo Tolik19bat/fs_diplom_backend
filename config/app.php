@@ -4,12 +4,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Name
+    | Имя приложения
     |--------------------------------------------------------------------------
     |
-    | This value is the name of your application, which will be used when the
-    | framework needs to place the application's name in a notification or
-    | other UI elements where an application name needs to be displayed.
+    | Это значение — имя вашего приложения, которое будет использоваться, когда
+    | фреймворку необходимо поместить имя приложения в уведомление или
+    | другие элементы пользовательского интерфейса, где необходимо отобразить имя приложения.
     |
     */
 
@@ -17,12 +17,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Environment
+    | Среда приложения
     |--------------------------------------------------------------------------
     |
-    | This value determines the "environment" your application is currently
-    | running in. This may determine how you prefer to configure various
-    | services the application utilizes. Set this in your ".env" file.
+    | Это значение определяет «среду», в которой в данный момент
+    | работает ваше приложение. Это может определить, как вы предпочитаете настраивать различные
+    | службы, используемые приложением. Установите это в вашем файле «.env».
     |
     */
 
@@ -30,12 +30,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Debug Mode
+    | Режим отладки приложения
     |--------------------------------------------------------------------------
     |
-    | When your application is in debug mode, detailed error messages with
-    | stack traces will be shown on every error that occurs within your
-    | application. If disabled, a simple generic error page is shown.
+    | Когда приложение находится в режиме отладки, подробные сообщения об ошибках с
+    | трассировкой стека будут отображаться для каждой ошибки, которая возникает в вашем
+    | приложении. Если отключено, отображается простая общая страница с ошибкой.
     |
     */
 
@@ -43,38 +43,38 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application URL
+    | URL приложения
     |--------------------------------------------------------------------------
     |
-    | This URL is used by the console to properly generate URLs when using
-    | the Artisan command line tool. You should set this to the root of
-    | the application so that it's available within Artisan commands.
+    | Этот URL используется консолью для правильной генерации URL при использовании
+    | инструмента командной строки Artisan. Вам следует установить его в корне
+    | приложения, чтобы он был доступен в командах Artisan.
     |
     */
 
     'url' => env('APP_URL', 'http://localhost'),
 
     /*
-    |--------------------------------------------------------------------------
-    | Application Timezone
-    |--------------------------------------------------------------------------
+    |-------------------------------------------------------------------------
+    | Часовой пояс приложения
+    |-------------------------------------------------------------------------
     |
-    | Here you may specify the default timezone for your application, which
-    | will be used by the PHP date and date-time functions. The timezone
-    | is set to "UTC" by default as it is suitable for most use cases.
+    | Здесь вы можете указать часовой пояс по умолчанию для вашего приложения, который
+    | будет использоваться функциями даты и даты-времени PHP. Часовой пояс
+    | по умолчанию установлен на «UTC», так как он подходит для большинства случаев использования.
     |
     */
 
     'timezone' => env('APP_TIMEZONE', 'UTC'),
 
     /*
-    |--------------------------------------------------------------------------
-    | Application Locale Configuration
+    |-------------------------------------------------------------------------
+    | Конфигурация локали приложения
     |--------------------------------------------------------------------------
     |
-    | The application locale determines the default locale that will be used
-    | by Laravel's translation / localization methods. This option can be
-    | set to any locale for which you plan to have translation strings.
+    | Локаль приложения определяет локаль по умолчанию, которая будет использоваться
+    | методами перевода/локализации Laravel. Этот параметр можно
+    | установить на любую локаль, для которой вы планируете иметь строки перевода.
     |
     */
 
@@ -86,12 +86,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Encryption Key
+    | Ключ шифрования
     |--------------------------------------------------------------------------
     |
-    | This key is utilized by Laravel's encryption services and should be set
-    | to a random, 32 character string to ensure that all encrypted values
-    | are secure. You should do this prior to deploying the application.
+    | Этот ключ используется службами шифрования Laravel и должен быть установлен
+    | на случайную строку из 32 символов, чтобы гарантировать, что все зашифрованные значения
+    | защищены. Это следует сделать до развертывания приложения.
     |
     */
 
@@ -107,14 +107,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Maintenance Mode Driver
+    | Драйвер режима обслуживания
     |--------------------------------------------------------------------------
     |
-    | These configuration options determine the driver used to determine and
-    | manage Laravel's "maintenance mode" status. The "cache" driver will
-    | allow maintenance mode to be controlled across multiple machines.
+    | Эти параметры конфигурации определяют драйвер, используемый для определения и
+    | управления статусом «режима обслуживания» Laravel. Драйвер «cache»
+    | позволит управлять режимом обслуживания на нескольких машинах.
     |
-    | Supported drivers: "file", "cache"
+    | Поддерживаемые драйверы: «file», «cache»
     |
     */
 
