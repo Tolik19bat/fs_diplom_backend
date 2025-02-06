@@ -1,0 +1,40 @@
+Это реализация PHP генератора штрихкодов QR Code 2-D. Это реализация на чистом PHP
+под лицензией LGPL на основе C libqrencode от Kentaro Fukuchi.
+
+== ЛИЦЕНЗИРОВАНИЕ ==
+
+Авторское право (C) 2010 Доминик Дзеня
+
+Эта библиотека является свободным программным обеспечением; вы можете распространять ее и/или изменять в соответствии с условиями GNU Lesser General Public License, опубликованной Free
+Software Foundation; либо версии 3 Лицензии, либо любой более поздней версии.
+
+Эта библиотека распространяется в надежде, что она будет полезна, но БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ; даже без подразумеваемой гарантии ТОВАРНОЙ ПРИГОДНОСТИ или ПРИГОДНОСТИ ДЛЯ
+КОНКРЕТНОЙ ЦЕЛИ. Подробнее см. GNU Lesser General Public License (файл LICENSE).
+
+Вы должны были получить копию GNU Lesser General Public License вместе с этой библиотекой; если нет, напишите в Free Software Foundation, Inc., 51
+Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+
+== УСТАНОВКА И ИСПОЛЬЗОВАНИЕ ==
+
+* УСТАНОВОЧНЫЙ ФАЙЛ
+* http://sourceforge.net/apps/mediawiki/phpqrcode/index.php?title=Главная_страница
+
+== КОНТАКТЫ ==
+
+Вы можете связаться со мной по электронной почте (deltalab at poczta dot fm) или используя
+следующие страницы проекта:
+
+* http://sourceforge.net/projects/phpqrcode/
+* http://phpqrcode.sourceforge.net/
+
+== БЛАГОДАРНОСТИ ==
+
+Основано на библиотеке C libqrencode (версия 3.1.1)
+Авторские права (C) 2006-2010 Kentaro Fukuchi
+http://megaui.net/fukuchi/works/qrencode/index.en.html
+
+QR Code — зарегистрированная торговая марка DENSO WAVE INCORPORATED в ЯПОНИИ и других
+странах.
+
+Кодировщик кода Рида-Соломона написан Филом Карном, KA9Q.
+Copyright (C) 2002, 2003, 2004, 2006 Фил Карн, KA9Q
