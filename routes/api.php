@@ -20,13 +20,26 @@ Route::middleware('throttle:limitRequest')->group(function () {
     Route::post('login', [AuthController::class, 'login']);
 });
 
-// Route::middleware(['auth:sanctum', 'throttle:limitRequest'])->group(function () {
+Route::middleware(['auth:sanctum', 'throttle:limitRequest'])->group(function () {
     Route::apiResource('/hall', HallController::class);
     Route::put('/chair', [ChairController::class, 'updateChairs']);
     Route::put('/hall/prices/{id}', [App\Http\Controllers\HallController::class, 'updatePrices']);
     Route::get('/hall/{hallId}/seances', [App\Http\Controllers\HallController::class, 'getSeances']);
     Route::put('/hall/{hallId}/sales', [App\Http\Controllers\HallController::class, 'setSales']);
     Route::apiResource('/movie', App\Http\Controllers\MovieController::class);
-
+    Route::delete('/seance/all/{movieId}', [App\Http\Controllers\SeanceController::class, 'deleteAll']);
     Route::get('/logout', [AuthController::class, 'logout']);
-// });
+});
+
+
+Route::get('/hall/{hallId}/chairs', [App\Http\Controllers\HallController::class, 'getChairs']);
+
+Route::get('/chair/seance/{seanceId}/date/{date}', [App\Http\Controllers\ChairController::class, 'getBySeanceIdAndDate']);
+
+Route::apiResource('/seance', App\Http\Controllers\SeanceController::class);
+Route::apiResource('/chair', App\Http\Controllers\ChairController::class);
+Route::get('/hall/{hallId}/seances/{movieId}', [App\Http\Controllers\HallController::class, 'getSeances']);
+Route::get('/movie/date/{date}', [App\Http\Controllers\MovieController::class, 'getByDate']);
+Route::get('/hall/seances/available', [App\Http\Controllers\HallController::class, 'getSeancesAvailable']);
+Route::post('/ticket', [App\Http\Controllers\TicketController::class, 'store']);
+Route::post("/qrcode", [App\Http\Controllers\QrcodeController::class, 'getQrcode']);
