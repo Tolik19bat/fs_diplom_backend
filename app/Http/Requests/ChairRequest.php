@@ -23,7 +23,6 @@ class ChairRequest extends FormRequest
     {
         return [
             'chairs' => ['required', 'array'],
-            'chairs.*.id' => ['required', 'integer'],
             'chairs.*.hall_id' => ['required', 'integer'],
             'chairs.*.row' => ['required', 'integer'],
             'chairs.*.place' =>['required', 'integer'],
