@@ -1,4 +1,4 @@
-# Backend ваполнен на Laravel
+# Backend Laravel
 
 ## Инструкции
 
