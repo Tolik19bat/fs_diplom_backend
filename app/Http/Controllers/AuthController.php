@@ -18,7 +18,8 @@ class AuthController extends Controller
     public function register(StoreUserRequest $request)
     {
         // Создаём нового пользователя с данными из запроса
-        return User::create($request->all());
+        $user = User::create($request->all());
+        return response()->json($user); // Возвращаем JSON-ответ
     }
 
     /**
