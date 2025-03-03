@@ -45,8 +45,7 @@ class AuthController extends Controller
         return response()->json([
             'user' => $user, // Информация о пользователе
             'token' => $user->createToken(
-                name: "Token of user: {$user->name}", // Имя токена
-                abilities: ['array'] // Замените на фактические возможности
+            "Token of user: {$user->name}" // Имя токена
             )->plainTextToken,
         ]);
     }

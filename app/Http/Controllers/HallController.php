@@ -87,9 +87,9 @@ class HallController extends Controller
         return Hall::query()->findOrFail($hallId)->seances()->where('movie_id', $movieId)->get(); //показать выбранный фильм в текущем сеансе
     }
 
-    public function getChairs(int $hallId) //получаем места в зале
+    public function getChairs(string|int $hallId) //получаем места в зале
     {
-        return Hall::query()->findOrFail($hallId)->chairs()->get(); //коллекция стульев в зале
+        return Hall::query()->findOrFail((int) $hallId)->chairs()->get(); //коллекция стульев в зале
     }
 
     public function setSales(SalesRequest $request, int $hallId) // 

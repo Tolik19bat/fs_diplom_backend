@@ -30,3 +30,4 @@ class ChairRequest extends FormRequest
         ];
     }
 }
+ 
