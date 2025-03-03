@@ -52,11 +52,11 @@ class HallController extends Controller
         // Ищем зал по идентификатору $hallId. Если зал не найден, будет выброшено исключение.  
         $hall = Hall::query()->findOrFail($hallId);
 
-        // Получаем все сеансы, связанные с найденным залом.  
-        $seances = $hall->seances();
+        // Получаем все сеансы, связанные с найденным залом и удаляем.  
+        $hall->seances()->delete();
 
-        // Удаляем все сеансы из базы данных.  
-        $seances->delete();
+        // Удаляем все места из базы данных.  
+        $hall->chairs()->delete();
 
         // Удаляем сам зал из базы данных. Если удаление успешно, возвращаем код состояния 204 (No Content).  
         if ($hall->delete()) {
@@ -99,9 +99,12 @@ class HallController extends Controller
         return $hall->save(); // Сохраняем изменения в базе данных  
     }
 
-    public function getSeancesAvailable()
-    { //получаем доступные сеансы
-        $halls = Hall::has('seances')->get(); // Получаем залы, у которых есть сеансы 
+    /**
+     * функция возвращает залы в которых есть сеансы и открыты продажи.
+     */
+    public function getHallsAvailable()
+    {
+        $halls = Hall::has('seances')->where('sales', true)->get(); // Получаем залы, у которых есть сеансы 
         return $halls; // Возвращаем список залов
     }
 

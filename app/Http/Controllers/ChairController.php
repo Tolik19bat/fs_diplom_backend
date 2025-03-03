@@ -49,7 +49,6 @@ class ChairController extends Controller
     {
         Hall::query()->findOrFail($hallId)->chairs()->delete(); // Удаляем существующие стулья для данного зала
         $chairs = $request->validated()['chairs']; // Валидируем входные данные
-        $array = [];
 
         // Создаем новые записи стульев
         foreach ($chairs as $chair) {
@@ -59,10 +58,10 @@ class ChairController extends Controller
                 'place' => $chair['place'],
                 'type' => $chair['type'],
             ];
-            $array[] = Chair::query()->create($item);
+            Chair::query()->create($item);
         }
 
-        return $array; // Возвращаем обновленный список стульев
+        return Hall::query()->findOrFail($hallId)->chairs()->get(); // Возвращаем обновленный список стульев
     }
 
     /**

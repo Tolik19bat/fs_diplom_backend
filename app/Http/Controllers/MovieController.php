@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movie;
+use App\Models\Hall;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MovieRequest;
 use Illuminate\Support\Facades\Storage;
@@ -94,11 +95,34 @@ class MovieController extends Controller
      */
     public function getByDate(string $date)
     {
-        // Извлекаем фильмы с сеансами, которые идут в указанную дату
+        // Извлекаем фильмы, у которых дата начала проката меньше или равна указанной дате,
+        // а дата окончания проката больше или равна указанной дате.
+        // Также проверяем, что у фильма есть связанные сеансы.
         $movies = Movie::where('start_date', '<=', $date)
             ->where('end_date', '>=', $date)
             ->has('seances')
             ->get();
-        return $movies;
+
+        // Извлекаем залы, в которых есть сеансы, и где включены продажи билетов.
+        $halls = Hall::has('seances')->where('sales', true)->get();
+
+        // Создаём пустой массив для доступных фильмов.
+        $availableMovies = [];
+
+        // Перебираем все найденные фильмы.
+        foreach ($movies as $movie) {
+            // Перебираем все залы с продажей билетов.
+            foreach ($halls as $hall) {
+                // Проверяем, есть ли у текущего фильма сеансы в данном зале.
+                if ($movie->seances()->where('hall_id', $hall->id)->exists()) {
+                    // Если фильм ещё не добавлен в массив доступных фильмов, добавляем его.
+                    if (!in_array($movie, $availableMovies)) {
+                        $availableMovies[] = $movie;
+                    }
+                }
+            }
+        }
+        // Возвращаем список доступных фильмов.
+        return $availableMovies;
     }
 }
