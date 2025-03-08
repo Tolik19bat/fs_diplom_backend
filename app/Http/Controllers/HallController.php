@@ -99,11 +99,7 @@ class HallController extends Controller
         return $hall->save(); // Сохраняем изменения в базе данных  
     }
 
-    /**
-     * функция возвращает залы в которых есть сеансы и открыты продажи.
-     */
-    public function getHallsAvailable()
-    {
+    public function getSeancesAvailable() {
         $halls = Hall::has('seances')->where('sales', true)->get(); // Получаем залы, у которых есть сеансы 
         return $halls; // Возвращаем список залов
     }

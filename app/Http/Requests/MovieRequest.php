@@ -23,7 +23,7 @@ class MovieRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string', 'max:255'],
-            'duration' => ['required', 'integer', 'min:1'],
+            'duration' => ['required', 'string', 'min:1'],
             'poster_url' => ['nullable', 'url'],
             'country' => ['required', 'string', 'max:100'],
             'description' => ['nullable', 'string', 'max:1000'],
