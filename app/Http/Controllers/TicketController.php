@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\TicketRequest;
 use App\Models\Ticket;
+// use Illuminate\Support\Facades\Log;
 
 class TicketController extends Controller
 {
@@ -12,6 +13,8 @@ class TicketController extends Controller
      */
     public function store(TicketRequest $request)
     {
+        // Логируем входящие данные
+        // Log::info('Incoming request data:', $request->all());
         // Проверяем, существует ли уже билет с указанной датой, ID сеанса и ID места
         if (Ticket::query()
             ->where('date', $request->get('date')) // Сравниваем дату

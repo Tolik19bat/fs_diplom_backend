@@ -22,7 +22,7 @@ class TicketRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'date' => ['required', 'date'],
+            'date' => ['required', 'date_format:Y-m-d'],
             'seance_id' => ['required', 'integer'],
             'chair_id' => ['required', 'integer'],
         ];
