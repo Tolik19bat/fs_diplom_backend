@@ -17,6 +17,12 @@ class Seance extends Model
         'start',
     ];
 
+    protected $casts = [
+        'hall_id' => 'integer',
+        'movie_id' => 'integer',
+        'start' => 'datetime:H:i', // Приводим к формату ЧЧ:ММ
+    ];
+
 //    protected $table = 'seances';
 
     public function hall(): BelongsTo //принадлежит залу

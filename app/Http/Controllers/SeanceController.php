@@ -25,8 +25,9 @@ class SeanceController extends Controller
      */
     public function store(SeanceRequest $request)
     {
-        // Создаём новый сеанс с использованием валидированных данных из запроса
-        return Seance::query()->create($request->validated());
+    $seance = Seance::query()->create($request->validated());
+    sleep(1); // Искусственная задержка перед отправкой ответа
+    return response()->json($seance, 201);
     }
 
     /**
