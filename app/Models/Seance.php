@@ -20,8 +20,14 @@ class Seance extends Model
     protected $casts = [
         'hall_id' => 'integer',
         'movie_id' => 'integer',
-        'start' => 'datetime:H:i', // Приводим к формату ЧЧ:ММ
+        'start' => 'datetime',
     ];
+    
+    // Аксессор для форматирования времени без ведущего нуля
+    public function getStartAttribute($value)
+    {
+        return \Carbon\Carbon::parse($value)->format('G:i');
+    }
 
 //    protected $table = 'seances';
 

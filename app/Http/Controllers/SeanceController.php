@@ -25,9 +25,9 @@ class SeanceController extends Controller
      */
     public function store(SeanceRequest $request)
     {
-    $seance = Seance::query()->create($request->validated());
-    sleep(1); // Искусственная задержка перед отправкой ответа
-    return response()->json($seance, 201);
+        $seance = Seance::query()->create($request->validated());
+        sleep(1); // Искусственная задержка перед отправкой ответа
+        return response()->json($seance, 201);
     }
 
     /**
@@ -41,13 +41,13 @@ class SeanceController extends Controller
         $movie = Movie::query()->findOrFail($seance->movie_id);
         // Находим связанную залу
         $hall = Hall::query()->findOrFail($seance->hall_id);
-        
-        // Возвращаем массив с данными сеанса, фильма и залы
-        return [
+
+        // Возвращаем массив с данными сеанса, фильма и залы + заголовки для отключения кеша
+        return response()->json([
             'seance' => $seance,
             'movie' => $movie,
             'hall' => $hall,
-        ];
+        ])->header('Cache-Control', 'no-cache, no-store, must-revalidate');
     }
 
     /**
@@ -59,7 +59,7 @@ class SeanceController extends Controller
         $seance = Seance::query()->findOrFail($seanceId);
         // Обновляем сеанс с валидированными данными
         $seance->fill($request->validated());
-        
+
         // Сохраняем изменения и возвращаем результат
         return $seance->save();
     }
@@ -71,7 +71,7 @@ class SeanceController extends Controller
     {
         // Извлекаем сеанс или выбрасываем исключение, если не найден
         $seance = Seance::query()->findOrFail($seanceId);
-        
+
         // Удаляем сеанс и возвращаем успешный ответ, если удаление прошло успешно
         if ($seance->delete()) {
             return response(null, 204); // Успешный статус удаления
@@ -86,7 +86,7 @@ class SeanceController extends Controller
     {
         // Извлекаем фильм и все его сеансы
         $seances = Movie::query()->findOrFail($movieId)->seances();
-        
+
         // Удаляем все сеансы и возвращаем успешный ответ
         if ($seances->delete()) {
             return response(null, 204); // Успешный статус удаления
