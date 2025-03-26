@@ -24,7 +24,14 @@ Route::middleware('throttle:limitRequest')->group(function () {
 });
 
 Route::middleware(['auth:sanctum', 'throttle:limitRequest'])->group(function () {
-    Route::apiResource('/hall', HallController::class);
+
+    Route::get('/hall', [HallController::class, 'index']); // Получить список всех залов (GET /hall)
+    Route::post('/hall', [HallController::class, 'store']); // Создать новый зал (POST /hall)
+    Route::get('/hall/{hall}', [HallController::class, 'show']); // Получить конкретный зал (GET /hall/{id})
+    Route::put('/hall/{hall}', [HallController::class, 'update']); // Обновить зал (PUT /hall/{id})
+    Route::delete('/hall/{hall}', [HallController::class, 'destroy']); // Удалить зал (DELETE /hall/{id})
+
+    // Route::apiResource('/hall', HallController::class);
     // Route::apiResource('/movie', MovieController::class);
 
     Route::get('/movie', [MovieController::class, 'index']); // Вернуть все фильмы
