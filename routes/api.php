@@ -38,7 +38,7 @@ Route::middleware(['auth:sanctum', 'throttle:limitRequest'])->group(function () 
     Route::post('/movie', [MovieController::class, 'store']); // Создать новый фильм
     Route::get('/movie/{movieId}', [MovieController::class, 'show']); // Получить данные о фильме
     Route::put('/movie/{movieId}', [MovieController::class, 'update']); // Обновить фильм
-    Route::delete('/movies/{movieId}', [MovieController::class, 'destroy']); // Удалить фильм
+    Route::delete('/movie/{movieId}', [MovieController::class, 'destroy']); // Удалить фильм
 
     Route::put('/chair', [ChairController::class, 'updateChairs']);
     Route::put('/hall/prices/{id}', [HallController::class, 'updatePrices']);
