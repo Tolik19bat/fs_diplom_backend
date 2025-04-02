@@ -15,8 +15,11 @@ class MovieController extends Controller
      */
     public function index()
     {
-        // Извлекаем и возвращаем все записи из таблицы movies
-        return Movie::all();
+        // Извлекаем все записи из таблицы movies
+        $movies = Movie::all();
+    
+        // Возвращаем данные в формате JSON
+        return response()->json($movies);
     }
 
     /**
