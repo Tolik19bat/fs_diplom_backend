@@ -17,7 +17,7 @@ class MovieController extends Controller
     {
         // Извлекаем все записи из таблицы movies
         $movies = Movie::all();
-    
+
         // Возвращаем данные в формате JSON
         return response()->json($movies);
     }
@@ -85,6 +85,13 @@ class MovieController extends Controller
     public function destroy(int $MovieId)
     {
         $movie = Movie::query()->findOrFail($MovieId);
+
+
+        // Удаляем все билеты, связанные с сеансами этого фильма
+        $movie->seances()->each(function ($seance) {
+            $seance->tickets()->delete();
+        });
+
         $seances = $movie->seances();
         $seances->delete(); // Удаляем все сеансы, связанные с фильмом
         if ($movie->delete()) {
