@@ -46,7 +46,7 @@ Route::middleware(['auth:sanctum', 'throttle:limitRequest'])->group(function () 
     Route::put('/movie/{movieId}', [MovieController::class, 'update']); // Обновить фильм
     Route::delete('/movie/{movieId}', [MovieController::class, 'destroy']); // Удалить фильм
 
-    Route::put('/chair', [ChairController::class, 'updateChairs']);
+
     Route::put('/hall/prices/{id}', [HallController::class, 'updatePrices']);
     Route::get('/hall/{hallId}/seances', [HallController::class, 'getSeances']);
     Route::put('/hall/{hallId}/sales', [HallController::class, 'setSales']);
@@ -56,6 +56,10 @@ Route::middleware(['auth:sanctum', 'throttle:limitRequest'])->group(function () 
 
 Route::middleware('throttle:limitRequest')->group(function () {
     Route::get('/hall/{hallId}/chairs', [HallController::class, 'getChairs']);
+
+
+    Route::put('/chair', [ChairController::class, 'updateChairs']);
+
 
     Route::get('/chair/seance/{seanceId}/date/{date}', [ChairController::class, 'getBySeanceIdAndDate']);
 
