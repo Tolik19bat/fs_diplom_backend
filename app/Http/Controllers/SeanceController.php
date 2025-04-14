@@ -72,6 +72,9 @@ class SeanceController extends Controller
         // Извлекаем сеанс или выбрасываем исключение, если не найден
         $seance = Seance::query()->findOrFail($seanceId);
 
+        // Удаляем все билеты, связанные с этим сеансом
+        $seance->tickets()->delete();
+
         // Удаляем сеанс и возвращаем успешный ответ, если удаление прошло успешно
         if ($seance->delete()) {
             return response(null, 204); // Успешный статус удаления
@@ -84,11 +87,17 @@ class SeanceController extends Controller
      */
     public function deleteAll(int $movieId)
     {
-        // Извлекаем фильм и все его сеансы
-        $seances = Movie::query()->findOrFail($movieId)->seances();
-
-        // Удаляем все сеансы и возвращаем успешный ответ
-        if ($seances->delete()) {
+        // Находим фильм и все его сеансы
+        $movie = Movie::query()->findOrFail($movieId);
+        $seances = $movie->seances;
+    
+        // Удаляем все билеты, связанные с этими сеансами
+        foreach ($seances as $seance) {
+            $seance->tickets()->delete(); // Удаляем билеты каждого сеанса
+        }
+    
+        // Удаляем все сеансы
+        if ($movie->seances()->delete()) {
             return response(null, 204); // Успешный статус удаления
         }
         return null;
