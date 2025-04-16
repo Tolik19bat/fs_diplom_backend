@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateChairsByIdRequest;
 use App\Models\Hall;
 use App\Models\Seance;
 use App\Models\Chair;
+use App\Models\Ticket;
 
 class ChairController extends Controller
 {
@@ -103,5 +104,19 @@ class ChairController extends Controller
             ->where('date', $Date) // Фильтруем по дате
             ->pluck('chair_id') // Получаем только ID стульев
             ->toArray(); // Преобразуем результат в массив
+    }
+
+    // App\Http\Controllers\ChairController.php
+    public function getOccupiedChairs($seanceId, $date)
+    {
+        // Если дата в формате dd.mm.YYYY, преобразуем в YYYY-mm-dd для БД
+        $formattedDate = \Carbon\Carbon::createFromFormat('d.m.Y', $date)->format('Y-m-d');
+
+        $occupiedChairs = Ticket::where('seance_id', $seanceId)
+            ->where('date', $formattedDate)
+            ->pluck('chair_id')
+            ->toArray();
+
+        return response()->json($occupiedChairs);
     }
 }
