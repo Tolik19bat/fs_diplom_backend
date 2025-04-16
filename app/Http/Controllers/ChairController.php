@@ -107,7 +107,7 @@ class ChairController extends Controller
     }
 
     // App\Http\Controllers\ChairController.php
-    public function getOccupiedChairs($seanceId, $date)
+    public function getOccupiedChairs( int $seanceId, string $date)
     {
         // Если дата в формате dd.mm.YYYY, преобразуем в YYYY-mm-dd для БД
         $formattedDate = \Carbon\Carbon::createFromFormat('d.m.Y', $date)->format('Y-m-d');
