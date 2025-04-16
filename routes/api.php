@@ -14,11 +14,11 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get('/test-json', function () {
-    return response()->json(['message' => 'hello world'], 200, [
-        'Content-Type' => 'application/json; charset=utf-8'
-    ]);
-});
+// Route::get('/test-json', function () {
+//     return response()->json(['message' => 'hello world'], 200, [
+//         'Content-Type' => 'application/json; charset=utf-8'
+//     ]);
+// });
 
 Route::middleware('throttle:limitRequest')->group(function () {
     Route::post('register', [AuthController::class, 'register']);
@@ -60,8 +60,8 @@ Route::middleware('throttle:limitRequest')->group(function () {
 
     Route::put('/chair', [ChairController::class, 'updateChairs']);
 
-
-    Route::get('/chair/seance/{seanceId}/date/{date}', [ChairController::class, 'getBySeanceIdAndDate']);
+    Route::get('/chair/seance/{seanceId}/date/{date}', [ChairController::class, 'getOccupiedChairs']);
+    // Route::get('/chair/seance/{seanceId}/date/{date}', [ChairController::class, 'getBySeanceIdAndDate']);
 
     Route::apiResource('/seance', SeanceController::class);
     Route::apiResource('/chair', ChairController::class);
