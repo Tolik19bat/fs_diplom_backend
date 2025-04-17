@@ -21,7 +21,8 @@ class AddSecurityHeaders
 
         // Устанавливаем Content-Type
         // if (str_contains($response->headers->get('Content-Type'), 'application/json')) {
-        //     $response->headers->set('Content-Type', 'application/json; charset=utf-8');
+        //     $response->headers->set('Content-Type',
+        //      'application/json; charset=utf-8');
         // }
 
         return $response;
