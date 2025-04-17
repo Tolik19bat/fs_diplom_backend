@@ -20,9 +20,9 @@ class AddSecurityHeaders
         // $response->headers->set('X-Frame-Options', 'SAMEORIGIN');
 
         // Устанавливаем Content-Type
-        if (str_contains($response->headers->get('Content-Type'), 'application/json')) {
-            $response->headers->set('Content-Type', 'application/json; charset=utf-8');
-        }
+        // if (str_contains($response->headers->get('Content-Type'), 'application/json')) {
+        //     $response->headers->set('Content-Type', 'application/json; charset=utf-8');
+        // }
 
         return $response;
     }
