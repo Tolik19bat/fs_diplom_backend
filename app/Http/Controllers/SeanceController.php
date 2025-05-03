@@ -17,7 +17,9 @@ class SeanceController extends Controller
     public function index()
     {
         // Извлекаем и возвращаем все записи из таблицы seances
-        return Seance::all();
+
+        $seances = Seance::all();
+        return response()->json($seances); // или return $seances;
     }
 
     /**
@@ -90,12 +92,12 @@ class SeanceController extends Controller
         // Находим фильм и все его сеансы
         $movie = Movie::query()->findOrFail($movieId);
         $seances = $movie->seances;
-    
+
         // Удаляем все билеты, связанные с этими сеансами
         foreach ($seances as $seance) {
             $seance->tickets()->delete(); // Удаляем билеты каждого сеанса
         }
-    
+
         // Удаляем все сеансы
         if ($movie->seances()->delete()) {
             return response(null, 204); // Успешный статус удаления
