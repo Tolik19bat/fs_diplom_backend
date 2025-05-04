@@ -7,6 +7,8 @@ use App\Models\Hall;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MovieRequest;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
+use League\Flysystem\UnableToWriteFile;
 
 class MovieController extends Controller
 {
@@ -27,18 +29,29 @@ class MovieController extends Controller
      */
     public function store(MovieRequest $request)
     {
+
         // Проверяем наличие файла и его валидность
         if ($request->hasFile('file') && $request->file('file')->isValid()) {
-            // Сохраняем файл в директорию posters и получаем путь к файлу
-            $path = Storage::disk('public')->putFile('posters', $request->file('file'));
-            // Получаем валидированные данные из запроса
-            $input = $request->validated();
-            // Удаляем файл из массива ввода
-            unset($input['file']);
-            // Добавляем URL постера к данным
-            $input['poster_url'] = asset("storage/$path");
+            try {
+                // Сохраняем файл в директорию posters и получаем путь к файлу
+                $path = Storage::disk('public')->putFile('posters', $request->file('file'));
+                // Получаем валидированные данные из запроса
+                $input = $request->validated();
+                // Удаляем файл из массива ввода
+                unset($input['file']);
+                // Добавляем URL постера к данным
+                $input['poster_url'] = asset("storage/$path");
+
+            } catch (UnableToWriteFile $e) {
+                // Логируем ошибку
+                Log::error('Ошибка при сохранении постера в MovieController: ' . $e->getMessage());
+
+                // Возвращаем ошибку пользователю
+                return back()->withErrors(['file' => 'Не удалось сохранить постер. Пожалуйста, попробуйте снова.']);
+
+            }
         } else {
-            // Получаем валидированные данные без файла
+            // Получаем все проверенные данные из запроса
             $input = $request->validated();
         }
 
