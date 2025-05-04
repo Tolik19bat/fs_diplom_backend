@@ -25,6 +25,8 @@ class MovieRequest extends FormRequest
             'title' => ['required', 'string', 'max:255'],
             'duration' => ['required', 'string', 'min:1'],
             'poster_url' => ['nullable', 'url'],
+            // Правило для файла постера:
+            'file' => 'nullable|file|image|max:2048',
             'country' => ['required', 'string', 'max:100'],
             'description' => ['nullable', 'string', 'max:1000'],
             'start_date' => ['required', 'date'],
